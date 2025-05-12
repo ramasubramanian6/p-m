@@ -15,7 +15,7 @@ import Header from "./pages/Header";
 const App = () => {
   return (
     <>
-    {/* Main App Container */}
+    
     <div>
       {/* Header that will be shown on all pages */}
       <Header />

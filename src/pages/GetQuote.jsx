@@ -104,20 +104,16 @@ const GetQuote = () => {
   };
 
   // Handle form submission
- // ...existing code...
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // Optional: log the form element
-    // console.log(e.target);
 
     // Send form data to EmailJS
     emailjs
       .sendForm(
-        "service_5ptojte", // EmailJS service ID
-        "template_gg5lba9", // EmailJS template ID
-        e.target,           // Form data
-        "VYrOW621xJ6XeKWX1" // EmailJS public key
+        "service_5ptojte",
+        "template_gg5lba9",
+        e.target, // <-- This is wrong
+        "VYrOW621xJ6XeKWX1"
       )
       .then((result) => {
         console.log("Email sent:", result.text);
@@ -129,7 +125,6 @@ const GetQuote = () => {
         alert("Something went wrong. Please try again.");
       });
   };
-
 
   return (
     <div className="max-w-3xl mx-auto py-12 px-6 bg-white rounded-lg shadow-xl mt-15">
