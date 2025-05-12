@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from "react-router-dom";
 
 // Animation variants for the main container
 const containerVariants = {
@@ -201,10 +202,14 @@ const HouseholdService = () => {
         <motion.p className="text-lg text-gray-700 leading-relaxed mb-10 max-w-2xl mx-auto" variants={textVariants}> {/* Larger text, more margin-bottom, constrained width */}
           Let <span className="font-bold text-indigo-700">{companyName}</span> handle the heavy lifting. Contact us today to discuss your household moving needs and receive a personalized, no-obligation quote.
         </motion.p>
-        {/* Replace with your actual contact link or button */}
-         <motion.a href="/get-quote" className="inline-block bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 text-white font-bold py-3 px-10 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-indigo-500 focus:ring-opacity-50" variants={listItemVariants}> {/* Gradient button, more horizontal padding, refined hover gradient */}
-           Get a Free Quote
-         </motion.a>
+      <motion.div variants={listItemVariants}>
+          <Link
+            to="/get-quote"
+            className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50"
+          >
+            Request a Commercial Moving Quote
+          </Link>
+        </motion.div>
       </motion.section>
     </motion.div>
   );

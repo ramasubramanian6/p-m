@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from "react-router-dom";
 
 // Animation variants for staggered appearance of sections
 const containerVariants = {
@@ -208,9 +209,14 @@ const OfficeService = () => {
           Ready for a seamless and efficient office relocation? Contact <span className="font-semibold text-blue-700">{companyName}</span> to discuss your specific requirements and get a customized quote.
         </motion.p>
         {/* Replace with your actual contact link or button */}
-         <motion.a href="/get-quote" className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50" variants={listItemVariants}> {/* Enhanced button styling */}
-           Request a Commercial Moving Quote
-         </motion.a>
+         <motion.div variants={listItemVariants}>
+          <Link
+            to="/get-quote"
+            className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50"
+          >
+            Request a Commercial Moving Quote
+          </Link>
+        </motion.div>
       </motion.section>
     </motion.div>
   );
