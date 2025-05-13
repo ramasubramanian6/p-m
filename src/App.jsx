@@ -29,6 +29,7 @@ const App = () => {
         <Route path="/office" element={<OfficeService />} />
         <Route path="/vehicle" element={<VehicleService />} />
         <Route path="/get-quote" element={<GetQuote />} />
+        <Route path="*" element={<Home />} />
       </Routes>
     </div>
     </>
