@@ -7,6 +7,7 @@ import HouseholdService from "./pages/services/HouseholdService";
 import OfficeService from "./pages/services/OfficeService";
 import VehicleService from "./pages/services/VehicleService";
 import GetQuote from "./pages/GetQuote";
+import AboutUs from "./pages/components/AboutUs";
 
 // Import components
 import Header from "./pages/Header";
@@ -29,6 +30,7 @@ const App = () => {
         <Route path="/office" element={<OfficeService />} />
         <Route path="/vehicle" element={<VehicleService />} />
         <Route path="/get-quote" element={<GetQuote />} />
+        <Route path="/about-us" element={<AboutUs />} />
         <Route path="*" element={<Home />} />
       </Routes>
     </div>
