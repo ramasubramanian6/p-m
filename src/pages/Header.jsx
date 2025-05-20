@@ -35,7 +35,7 @@ const Header = () => {
 
   return (
     <motion.header
-      className="bg-[#d9d9d9a4] text-white shadow-xl fixed w-full z-50 top-0"
+      className="bg-gradient-to-bl from-blue-50 to-blue-300 shadow-2xs text-white shadow-xl fixed w-full z-50 top-0"
       variants={headerVariants}
       initial="initial"
       animate="animate"
@@ -44,7 +44,7 @@ const Header = () => {
         {/* Logo Image */}
         <Link to="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity duration-200">
           <img src={logo} alt="Move My Stuffs Logo" className="h-15 w-auto object-contain" />
-          <span className='text-2xl font-bold '><span className='text-[#571b1bb0]'>M</span>O<span className='text-[#571b1bb0]'>VE</span>MY <span className='text-[#571b1bb0]'>ST</span>U<span className='text-[#571b1bb0]'>FFS</span></span>
+          <span className='text-2xl font-bold '><span className='text-[#b02c1a]'>M</span><span className='text-[#333333]' >O</span><span className='text-[#b02c1a]'>VE</span><span className='text-[#333333]' >MY </span><span className='text-[#b02c1a]'>ST</span><span className='text-[#333333]' >U</span><span className='text-[#b02c1a]'>FFS</span></span>
            
         </Link>
 
@@ -61,25 +61,25 @@ const Header = () => {
 
         {/* Desktop Navigation Menu */}
         <motion.nav
-          className="hidden lg:flex space-x-8"
+          className="hidden lg:flex space-x-8 text-[#333333]"
           variants={navVariants}
           initial="initial"
           animate="animate"
         >
           <motion.div variants={linkVariants} whileHover="hover" whileTap="tap">
-            <Link to="/" className="text-lg font-medium hover:text-blue-200 transition-colors duration-200">Home</Link>
+            <Link to="/" className="text-lg font-medium hover:text-blue-500 transition-colors duration-200">Home</Link>
           </motion.div>
           <motion.div variants={linkVariants} whileHover="hover" whileTap="tap">
-            <Link to="/household" className="text-lg font-medium hover:text-blue-200 transition-colors duration-200">Household Shifting</Link>
+            <Link to="/household" className="text-lg font-medium hover:text-blue-500 transition-colors duration-200">Household Shifting</Link>
           </motion.div>
           <motion.div variants={linkVariants} whileHover="hover" whileTap="tap">
-            <Link to="/vehicle" className="text-lg font-medium hover:text-blue-200 transition-colors duration-200">Vehicle Transport</Link>
+            <Link to="/vehicle" className="text-lg font-medium hover:text-blue-500 transition-colors duration-200">Vehicle Transport</Link>
           </motion.div>
           <motion.div variants={linkVariants} whileHover="hover" whileTap="tap">
-            <Link to="/office" className="text-lg font-medium hover:text-blue-200 transition-colors duration-200">Office Relocation</Link>
+            <Link to="/office" className="text-lg font-medium hover:text-blue-500 transition-colors duration-200">Office-Relocation</Link>
           </motion.div>
           <motion.div variants={linkVariants} whileHover="hover" whileTap="tap">
-            <Link to="/about-us" className="text-lg font-medium hover:text-blue-200 transition-colors duration-200">About Us</Link>
+            <Link to="/about-us" className="text-lg font-medium hover:text-blue-500 transition-colors duration-200">About Us</Link>
           </motion.div>
         </motion.nav>
 

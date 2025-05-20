@@ -1,6 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from "react-router-dom";
+import h1 from '../../assets/household/1.jpg'
+import h2 from '../../assets/household/2.jpg'
+import h3 from '../../assets/household/3.jpg'
+import h4 from '../../assets/household/4.jpg'
+import h5 from '../../assets/household/5.jpg'
+import h6 from '../../assets/household/6.jpg'
 
 // Animation variants
 const containerVariants = {
@@ -73,6 +79,7 @@ const galleryVariants = {
 
 const HouseholdService = () => {
   const companyName = 'Your Trusted Movers';
+  const images=[h1,h2,h3,h4,h5,h6]
 
   return (
     <motion.div
@@ -117,10 +124,10 @@ const HouseholdService = () => {
           {[...Array(6)].map((_, index) => (
             <motion.div
               key={index}
-              className="bg-gray-100 aspect-video rounded-xl shadow-xl overflow-hidden border border-gray-200 flex items-center justify-center text-gray-400 text-sm italic"
+              className="bg-gray-100 aspect-video rounded-xl shadow-xl overflow-hidden  border border-gray-200 flex items-center justify-center text-gray-400 text-sm italic"
               variants={imageBoxVariants}
             >
-              Image Placeholder {index + 1}
+              <img src={images[index]} ></img>
             </motion.div>
           ))}
         </motion.div>

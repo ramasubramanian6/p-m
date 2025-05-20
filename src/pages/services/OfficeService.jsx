@@ -1,6 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from "react-router-dom";
+import o1 from '../../assets/office/o1.jpg'
+import o2 from '../../assets/office/o2.jpg'
+import o3 from '../../assets/office/o3.jpg'
+import o4 from '../../assets/office/o4.jpg'
+import o6 from '../../assets/office/o6.jpg'
+import o5 from '../../assets/office/o5.jpg'
 
 // Animation variants for staggered appearance of sections
 const containerVariants = {
@@ -77,6 +83,9 @@ const galleryContainerVariants = {
 
 
 const OfficeService = () => {
+
+    const off=[o1,o2,o3,o4,o5,o6];
+
     const companyName = 'Your Corporate Movers'; // Replace with your actual company name
 
   return (
@@ -135,17 +144,7 @@ const OfficeService = () => {
                     className="bg-gray-100 aspect-video rounded-lg shadow-xl overflow-hidden relative border border-gray-200 flex items-center justify-center text-gray-400 text-sm" // Enhanced styling
                     variants={galleryItemVariants}
                 >
-                    Image Placeholder {index + 1}
-                    {/* Replace with actual images later */}
-                    {/* <img
-                        src={`/path/to/office-move-image-${index + 1}.jpg`} // Use actual image paths
-                        alt={`Office Relocation Example ${index + 1}`}
-                        className="w-full h-full object-cover"
-                    /> */}
-                     {/* Optional overlay for text */}
-                     {/* <div className="absolute inset-0 bg-black bg-opacity-30 flex justify-center items-center text-white text-lg opacity-0 hover:opacity-100 transition-opacity duration-300">
-                        Project Details
-                     </div> */}
+                    <img src={off[index]}></img>
                 </motion.div>
             ))}
         </motion.div>

@@ -1,6 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import v1  from "../../assets/vehicle/v1.jpg"
+import v2  from "../../assets/vehicle/v2.jpg"
+import v3  from "../../assets/vehicle/v3.jpg"
+import v4  from "../../assets/vehicle/v4.jpg"
+import v5  from "../../assets/vehicle/v5.jpg"
+import v6  from "../../assets/vehicle/v6.jpg"
+
 
 // Animation variants for staggered appearance of sections
 const containerVariants = {
@@ -76,6 +83,9 @@ const galleryContainerVariants = {
 };
 
 const VehicleService = () => {
+
+  const vech=[v6,v2,v3,v4,v5,v1];
+
   const companyName = "Your Trusted Transporters"; // Replace with your actual company name
 
   return (
@@ -181,13 +191,7 @@ const VehicleService = () => {
                 className="bg-gray-100 aspect-video rounded-lg shadow-xl overflow-hidden relative border border-gray-200 flex items-center justify-center text-gray-400 text-sm" // Enhanced styling
                 variants={galleryItemVariants}
               >
-                Image Placeholder {index + 1}
-                {/* Replace with actual images later */}
-                {/* <img
-                        src={`/path/to/vehicle-transport-image-${index + 1}.jpg`} // Use actual image paths
-                        alt={`Vehicle Transport Example ${index + 1}`}
-                        className="w-full h-full object-cover"
-                    /> */}
+                <img src={vech[index]} ></img>
               </motion.div>
             )
           )}

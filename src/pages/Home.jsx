@@ -13,8 +13,9 @@ import loading from "../assets/icons/Logistics-amico.png";
 import storage from "../assets/icons/Fitting piece-bro.png";
 import ContactSection from "./components/ContactSection";
 
-import office_img from "../assets/homeimages/homehousehold.jpg";
-import vehicle_img from "../assets/homeimages/vehicle shifting.jpg"; // optional
+import office_img from "../assets/vehicle/v3.jpg";
+import vehicle_img from "../assets/vehicle/v2.jpg"; // optional
+
 
 
 const sectionVariants = {
@@ -56,7 +57,7 @@ const modalVariants = {
   },
 };
 
-const heroImages = [home_img, office_img, vehicle_img,home_img];
+const heroImages = [home_img,office_img,vehicle_img,home_img];
 
 
 
