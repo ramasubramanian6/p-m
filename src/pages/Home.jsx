@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { FaWhatsapp, FaPhoneAlt } from "react-icons/fa";
+import { FaPhoneAlt } from "react-icons/fa";
 import { MdLocationOn } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
@@ -12,11 +12,8 @@ import packing from "../assets/icons/Logistics-bro.png";
 import loading from "../assets/icons/Logistics-amico.png";
 import storage from "../assets/icons/Fitting piece-bro.png";
 import ContactSection from "./components/ContactSection";
-
 import office_img from "../assets/vehicle/v3.jpg";
 import vehicle_img from "../assets/vehicle/v2.jpg"; // optional
-
-
 
 const sectionVariants = {
   initial: { opacity: 0, y: 50 },
@@ -57,9 +54,7 @@ const modalVariants = {
   },
 };
 
-const heroImages = [home_img,office_img,vehicle_img,home_img];
-
-
+const heroImages = [home_img, office_img, vehicle_img, home_img];
 
 const Home = () => {
   const [showQuoteModal, setShowQuoteModal] = useState(false);
@@ -72,20 +67,16 @@ const Home = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  // Auto-slide every 7 seconds
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) =>
-        (prevIndex + 1) % heroImages.length
-      );
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % heroImages.length);
     }, 5000);
     return () => clearInterval(interval);
   }, []);
 
   return (
     <div className="w-full overflow-hidden font-sans text-gray-800 bg-gray-50">
-
-      {/* Hero section with slideshow */}
+      {/* Hero Section */}
       <section className="relative w-full h-[80vh] md:h-[90vh] overflow-visible">
         <AnimatePresence mode="wait">
           <motion.img
@@ -117,20 +108,38 @@ const Home = () => {
           >
             Your Trusted Packers & Movers – Government, GST, and I.B.A. Approved
           </motion.p>
-          <motion.a
-            href="https://wa.me/919087893000"
-            className="inline-flex items-center bg-green-500 text-white font-semibold px-8 py-4 rounded-full shadow-xl hover:bg-green-600 transition-colors duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-green-500 focus:ring-opacity-50"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 1, duration: 0.7, ease: "easeOut" }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <FaWhatsapp className="mr-3 text-2xl" /> Chat on WhatsApp
-          </motion.a>
+           <motion.div
+                className="text-center mt-8 space-y-4"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.6, ease: "easeOut" }}
+              >
+                <motion.p
+                  className="text-gray-50 text-3xl"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.4, duration: 0.5 }}
+                >
+                  Prefer to talk to our team directly?
+                </motion.p>
+
+                <motion.a
+                  href="tel:+919087893000"
+                  className="inline-flex items-center gap-2 bg-blue-600 text-white font-semibold px-6 py-3 rounded-full shadow-lg hover:bg-green-700 transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-green-500 focus:ring-opacity-50"
+                  initial={{ scale: 0.9, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ delay: 0.5, duration: 0.4 }}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <FaPhoneAlt className="text-xl" />
+                  Call Us Now
+                </motion.a>
+              </motion.div>
         </div>
       </section>
 
+      {/* Quote Modal */}
       <AnimatePresence>
         {showQuoteModal && (
           <motion.div
@@ -163,15 +172,20 @@ const Home = () => {
                   Go to Full Quote Page
                 </Link>
               </div>
+
+              {/* ✅ Call to Action */}
+             
             </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
 
+      {/* Highlights Section */}
       <section className="py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-white rounded-xl shadow-lg mt-[-2rem] relative z-10">
         <Highlights />
       </section>
 
+      {/* Services Section */}
       <motion.section
         className="py-20 md:py-28 px-6 bg-blue-700 text-white text-center"
         variants={sectionVariants}
@@ -209,9 +223,9 @@ const Home = () => {
           ))}
         </motion.div>
       </motion.section>
+
+      {/* Contact Section */}
       <ContactSection />
-      
-      
     </div>
   );
 };

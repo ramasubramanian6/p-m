@@ -11,6 +11,7 @@ import AboutUs from "./pages/components/AboutUs";
 
 // Import components
 import Header from "./pages/Header";
+import WhatsAppFloatingButton from "./pages/components/WhatsAppFloatingButton";
 
 
 const App = () => {
@@ -33,6 +34,7 @@ const App = () => {
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="*" element={<Home />} />
       </Routes>
+      <WhatsAppFloatingButton />
     </div>
     </>
   );

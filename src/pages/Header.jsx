@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
- import logo from '../assets/ads/Group 12.png'; // Adjust path as per your project structure
+import logo from '../assets/ads/Group 12.png'; // Adjust path as per your project structure
 
 const headerVariants = {
   initial: { y: -100 },
@@ -44,8 +44,15 @@ const Header = () => {
         {/* Logo Image */}
         <Link to="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity duration-200">
           <img src={logo} alt="Move My Stuffs Logo" className="h-15 w-auto object-contain" />
-          <span className='text-2xl font-bold '><span className='text-[#b02c1a]'>M</span><span className='text-[#333333]' >O</span><span className='text-[#b02c1a]'>VE</span><span className='text-[#333333]' >MY </span><span className='text-[#b02c1a]'>ST</span><span className='text-[#333333]' >U</span><span className='text-[#b02c1a]'>FFS</span></span>
-           
+          <span className='text-2xl font-bold'>
+            <span className='text-[#b02c1a]'>M</span>
+            <span className='text-[#333333]'>O</span>
+            <span className='text-[#b02c1a]'>VE</span>
+            <span className='text-[#333333]'>MY </span>
+            <span className='text-[#b02c1a]'>ST</span>
+            <span className='text-[#333333]'>U</span>
+            <span className='text-[#b02c1a]'>FFS</span>
+          </span>
         </Link>
 
         {/* Menu Toggler for Mobile */}
@@ -66,21 +73,18 @@ const Header = () => {
           initial="initial"
           animate="animate"
         >
-          <motion.div variants={linkVariants} whileHover="hover" whileTap="tap">
-            <Link to="/" className="text-lg font-medium hover:text-blue-500 transition-colors duration-200">Home</Link>
-          </motion.div>
-          <motion.div variants={linkVariants} whileHover="hover" whileTap="tap">
-            <Link to="/household" className="text-lg font-medium hover:text-blue-500 transition-colors duration-200">Household Shifting</Link>
-          </motion.div>
-          <motion.div variants={linkVariants} whileHover="hover" whileTap="tap">
-            <Link to="/vehicle" className="text-lg font-medium hover:text-blue-500 transition-colors duration-200">Vehicle Transport</Link>
-          </motion.div>
-          <motion.div variants={linkVariants} whileHover="hover" whileTap="tap">
-            <Link to="/office" className="text-lg font-medium hover:text-blue-500 transition-colors duration-200">Office-Relocation</Link>
-          </motion.div>
-          <motion.div variants={linkVariants} whileHover="hover" whileTap="tap">
-            <Link to="/about-us" className="text-lg font-medium hover:text-blue-500 transition-colors duration-200">About Us</Link>
-          </motion.div>
+          {[
+            { name: 'Home', path: '/' },
+            { name: 'Household Shifting', path: '/household' },
+            { name: 'Vehicle Transport', path: '/vehicle' },
+            { name: 'Office-Relocation', path: '/office' },
+            { name: 'About Us', path: '/about-us' },
+            { name: 'Contact Us', path: '/get-quote' },
+          ].map(({ name, path }) => (
+            <motion.div key={name} variants={linkVariants} whileHover="hover" whileTap="tap">
+              <Link to={path} className="text-lg font-medium hover:text-blue-500 transition-colors duration-200">{name}</Link>
+            </motion.div>
+          ))}
         </motion.nav>
 
         {/* Mobile Dropdown Menu */}
@@ -95,11 +99,23 @@ const Header = () => {
               className="lg:hidden absolute top-full left-0 w-full bg-blue-700 py-4 shadow-md"
             >
               <nav className="flex flex-col items-center space-y-6">
-                <Link to="/" className="text-lg font-medium text-white hover:text-blue-200 transition-colors duration-200" onClick={() => setMenuOpen(false)}>Home</Link>
-                <Link to="/household" className="text-lg font-medium text-white hover:text-blue-200 transition-colors duration-200" onClick={() => setMenuOpen(false)}>Household Shifting</Link>
-                <Link to="/vehicle" className="text-lg font-medium text-white hover:text-blue-200 transition-colors duration-200" onClick={() => setMenuOpen(false)}>Vehicle Transport</Link>
-                <Link to="/office" className="text-lg font-medium text-white hover:text-blue-200 transition-colors duration-200" onClick={() => setMenuOpen(false)}>Office Relocation</Link>
-                <Link to="/about-us" className="text-lg font-medium text-white hover:text-blue-200 transition-colors duration-200" onClick={() => setMenuOpen(false)}>About Us</Link>
+                {[
+                  { name: 'Home', path: '/' },
+                  { name: 'Household Shifting', path: '/household' },
+                  { name: 'Vehicle Transport', path: '/vehicle' },
+                  { name: 'Office Relocation', path: '/office' },
+                  { name: 'About Us', path: '/about-us' },
+                  { name: 'Contact Us', path: '/get-quote' },
+                ].map(({ name, path }) => (
+                  <Link
+                    key={name}
+                    to={path}
+                    onClick={() => setMenuOpen(false)}
+                    className="text-lg font-medium text-white hover:text-blue-200 transition-colors duration-200"
+                  >
+                    {name}
+                  </Link>
+                ))}
               </nav>
             </motion.div>
           )}
