@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import emailjs from "emailjs-com";
 import { motion, AnimatePresence } from "framer-motion";
 
+// Google Fonts: Poppins imported via tailwind config or index.html
+// Tailwind CSS is assumed configured
+
 const AboutUs = () => {
   const [formData, setFormData] = useState({ name: "", phone: "" });
   const [loading, setLoading] = useState(false);
@@ -60,7 +63,7 @@ const AboutUs = () => {
 
   const modalBackdrop = {
     hidden: { opacity: 0 },
-    visible: { opacity: 0.5 },
+    visible: { opacity: 0.6 },
   };
 
   const modalVariants = {
@@ -69,92 +72,121 @@ const AboutUs = () => {
   };
 
   const commonPhoneNumbers = (
-    <p className="text-gray-700 mt-1">
-      Contact No:{" "}
-      <a href="tel:+919087893000" className="text-blue-600 hover:underline">
-        +91 90878 93000
+    <p className="text-gray-700 mt-2 text-sm flex flex-wrap gap-3 items-center justify-center md:justify-start">
+      <span className="font-semibold">Contact:</span>
+      <a href="tel:+919087893000" className="text-blue-600 font-medium hover:underline">
+        📞 +91 90878 93000
       </a>
-      ,{" "}
-      <a href="tel:+917253055609" className="text-blue-600 hover:underline">
-        +91 72530 55609
+      <a href="tel:+917253055609" className="text-blue-600 font-medium hover:underline">
+        📞 +91 72530 55609
       </a>
     </p>
   );
 
   return (
     <>
-      <div className="bg-gradient-to-br from-blue-100 via-blue-100 to-blue-200">
+      <div className="bg-gradient-to-tr from-indigo-50 via-purple-100 to-pink-50 min-h-screen font-poppins">
         <motion.div
-          className="max-w-5xl mx-auto p-6 pt-32"
+          className="max-w-6xl mx-auto p-6 pt-32"
           initial="hidden"
           animate="visible"
           variants={containerVariants}
         >
           <motion.h1
-            className="text-3xl font-bold mb-8 text-center text-blue-900"
-            initial={{ opacity: 0, y: -20 }}
+            className="text-5xl font-extrabold mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-700 via-pink-600 to-red-500 drop-shadow-lg tracking-wide"
+            initial={{ opacity: 0, y: -40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 1 }}
           >
             About Us
           </motion.h1>
 
-          {/* Head Office */}
+          {/* Mission & Vision */}
           <motion.section
-            className="mb-10 bg-white shadow-md rounded-lg p-6 border border-gray-200"
+            className="mb-16 bg-white rounded-3xl shadow-lg p-10 md:p-16 border border-purple-200"
             variants={containerVariants}
           >
-            <h2 className="text-2xl font-semibold mb-3 text-gray-800">
-              Head Office
+            <h2 className="text-3xl font-semibold mb-6 text-purple-700 tracking-wide text-center">
+              Our Mission & Vision
             </h2>
-            <h3 className="font-semibold text-lg text-blue-700">Chennai</h3>
-            <p className="text-gray-700 leading-relaxed">
-              No 3 A, Mettu Kalazni Street, Adambakkam, Chennai 600088
+            <p className="text-gray-700 max-w-3xl mx-auto leading-relaxed text-lg text-center">
+              At <span className="font-bold text-purple-600">Om Packers & Movers</span>, our mission is to deliver
+              seamless, trustworthy, and efficient moving services that give you peace of mind. We
+              envision a world where every relocation is smooth and stress-free — with care at the
+              heart of everything we do.
             </p>
-            {commonPhoneNumbers}
           </motion.section>
 
-          {/* Branches */}
+          {/* Offices & Branches */}
           <motion.section
-            className="mb-10 bg-white shadow-md rounded-lg p-6 border border-gray-200"
+            className="mb-16 grid grid-cols-1 md:grid-cols-2 gap-12"
             variants={containerVariants}
           >
-            <h2 className="text-2xl font-semibold mb-6 text-gray-800">
-              Branches & Network Cities
-            </h2>
+            {/* Head Office */}
+            <div className="bg-white rounded-3xl shadow-xl p-8 border border-purple-100 hover:shadow-2xl transition duration-300">
+              <h3 className="text-2xl font-bold text-purple-800 mb-4 flex items-center gap-3">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-7 w-7 text-purple-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M17 9V7a5 5 0 00-10 0v2m12 0v10a2 2 0 01-2 2H7a2 2 0 01-2-2V9m12 0H5"
+                  />
+                </svg>
+                Head Office - Chennai
+              </h3>
+              <p className="text-gray-700 mb-3">
+                No 3 A, Mettu Kalazni Street, Adambakkam, Chennai 600088
+              </p>
+              {commonPhoneNumbers}
+            </div>
 
-            {[
-              {
-                city: "Bangalore",
-                address:
-                  "No 63/201, 2nd Cross, JC Road Kalasipalyam New Extension, Bengaluru - 560002",
-              },
-              {
-                city: "Coimbatore",
-                address:
-                  "Sridevi Nagar, Giri Nagar, Saibaba Colony, K K Pudur, Coimbatore, Tamil Nadu 641025",
-              },
-              {
-                city: "Hyderabad",
-                address:
-                  "H No. 8/7 95/3, Old Bowenpally, Balaji Secundrabad, Hyderabad, Telangana, 500011",
-              },
-              {
-                city: "Delhi NCR",
-                address: "Dabua Colony near Durga Mandir, Faridabad",
-              },
-              {
-                city: "Agra",
-                address:
-                  "Kaulakha Crossing Ukharra Road, Rajpur Chungi, Agra",
-              },
-            ].map(({ city, address }) => (
-              <div key={city} className="mb-5">
-                <h3 className="font-semibold text-lg text-blue-700">{city}</h3>
-                <p className="text-gray-700">{address}</p>
-                {commonPhoneNumbers}
-              </div>
-            ))}
+            {/* Branches */}
+            <div className="bg-white rounded-3xl shadow-xl p-8 border border-purple-100 hover:shadow-2xl transition duration-300">
+              <h3 className="text-2xl font-bold text-purple-800 mb-6 text-center md:text-left">
+                Branches & Network Cities
+              </h3>
+              {[
+                {
+                  city: "Bangalore",
+                  address:
+                    "No 63/201, 2nd Cross, JC Road Kalasipalyam New Extension, Bengaluru - 560002",
+                },
+                {
+                  city: "Coimbatore",
+                  address:
+                    "Sridevi Nagar, Giri Nagar, Saibaba Colony, K K Pudur, Coimbatore, Tamil Nadu 641025",
+                },
+                {
+                  city: "Hyderabad",
+                  address:
+                    "H No. 8/7 95/3, Old Bowenpally, Balaji Secundrabad, Hyderabad, Telangana, 500011",
+                },
+                {
+                  city: "Delhi NCR",
+                  address: "Dabua Colony near Durga Mandir, Faridabad",
+                },
+                {
+                  city: "Agra",
+                  address: "Kaulakha Crossing Ukharra Road, Rajpur Chungi, Agra",
+                },
+              ].map(({ city, address }) => (
+                <div
+                  key={city}
+                  className="mb-6 border-l-4 border-purple-300 pl-4 hover:border-purple-500 transition"
+                >
+                  <h4 className="text-lg font-semibold text-purple-700 mb-1">{city}</h4>
+                  <p className="text-gray-700 mb-1">{address}</p>
+                  {commonPhoneNumbers}
+                </div>
+              ))}
+            </div>
           </motion.section>
         </motion.div>
 
@@ -164,7 +196,7 @@ const AboutUs = () => {
             <>
               {/* Backdrop */}
               <motion.div
-                className="fixed inset-0 bg-black z-40"
+                className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40"
                 variants={modalBackdrop}
                 initial="hidden"
                 animate="visible"
@@ -180,16 +212,16 @@ const AboutUs = () => {
                 animate="visible"
                 exit="hidden"
               >
-                <div className="bg-white rounded-lg shadow-lg max-w-md w-full p-8 relative">
+                <div className="bg-white rounded-3xl shadow-2xl max-w-md w-full p-10 relative border border-purple-100">
                   {/* Close Button */}
                   <button
                     onClick={() => setShowModal(false)}
-                    className="absolute top-3 right-3 text-gray-500 hover:text-gray-700 focus:outline-none"
+                    className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 focus:outline-none"
                     aria-label="Close modal"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      className="h-6 w-6"
+                      className="h-7 w-7"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -203,14 +235,14 @@ const AboutUs = () => {
                     </svg>
                   </button>
 
-                  <h2 className="text-2xl font-semibold mb-6 text-center text-gray-800">
-                    Request a Call
+                  <h2 className="text-3xl font-bold mb-8 text-center text-purple-700 tracking-wide">
+                    Request a Call Back
                   </h2>
-                  <form onSubmit={handleSubmit} className="space-y-6">
+                  <form onSubmit={handleSubmit} className="space-y-8">
                     <div>
                       <label
                         htmlFor="name"
-                        className="block mb-2 font-medium text-gray-700"
+                        className="block mb-3 font-semibold text-gray-700 text-lg"
                       >
                         Name
                       </label>
@@ -220,15 +252,15 @@ const AboutUs = () => {
                         id="name"
                         value={formData.name}
                         onChange={handleChange}
-                        placeholder="Your name"
+                        placeholder="Your full name"
                         required
-                        className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full border border-gray-300 rounded-2xl px-5 py-3 bg-purple-50 focus:outline-none focus:ring-4 focus:ring-purple-300 focus:bg-white transition text-lg"
                       />
                     </div>
                     <div>
                       <label
                         htmlFor="phone"
-                        className="block mb-2 font-medium text-gray-700"
+                        className="block mb-3 font-semibold text-gray-700 text-lg"
                       >
                         Phone Number
                       </label>
@@ -238,9 +270,9 @@ const AboutUs = () => {
                         id="phone"
                         value={formData.phone}
                         onChange={handleChange}
-                        placeholder="Your phone number"
+                        placeholder="+91 98765 43210"
                         required
-                        className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full border border-gray-300 rounded-2xl px-5 py-3 bg-purple-50 focus:outline-none focus:ring-4 focus:ring-purple-300 focus:bg-white transition text-lg"
                       />
                     </div>
                     <motion.button
@@ -248,13 +280,17 @@ const AboutUs = () => {
                       disabled={loading}
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className="w-full bg-blue-600 text-white py-3 rounded-md font-semibold shadow-md hover:bg-blue-700 disabled:opacity-50"
+                      className="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white py-4 rounded-2xl font-bold shadow-lg hover:from-pink-600 hover:to-purple-700 transition duration-300 disabled:opacity-50"
                     >
-                      {loading ? "Sending..." : "Get Call"}
+                      {loading ? "Sending..." : "Get Call Back"}
                     </motion.button>
                   </form>
                   {message && (
-                    <p className="mt-4 text-center text-red-600 font-semibold">
+                    <p
+                      className={`mt-6 text-center font-semibold text-lg ${
+                        message.includes("Thank") ? "text-green-600" : "text-red-600"
+                      }`}
+                    >
                       {message}
                     </p>
                   )}

@@ -79,7 +79,6 @@ const Header = () => {
             { name: 'Vehicle Transport', path: '/vehicle' },
             { name: 'Office-Relocation', path: '/office' },
             { name: 'About Us', path: '/about-us' },
-            { name: 'Contact Us', path: '/get-quote' },
           ].map(({ name, path }) => (
             <motion.div key={name} variants={linkVariants} whileHover="hover" whileTap="tap">
               <Link to={path} className="text-lg font-medium hover:text-blue-500 transition-colors duration-200">{name}</Link>

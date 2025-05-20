@@ -7,6 +7,20 @@ import v3  from "../../assets/vehicle/v3.jpg"
 import v4  from "../../assets/vehicle/v4.jpg"
 import v5  from "../../assets/vehicle/v5.jpg"
 import v6  from "../../assets/vehicle/v6.jpg"
+import { FaPhoneAlt, FaInstagram, FaFacebookF, FaYoutube, FaMapMarkerAlt } from "react-icons/fa";
+
+// Animation variants
+const sectionVariants = {
+  initial: { opacity: 0, y: 50 },
+  animate: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+};
+
+const itemVariants = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0, transition: { duration: 0.4 } },
+};
+
+
 
 
 // Animation variants for staggered appearance of sections
@@ -392,6 +406,75 @@ const VehicleService = () => {
           </Link>
         </motion.div>
       </motion.section>
+       <motion.footer
+                    className="bg-gray-900 text-white py-12 px-6 mt-1  text-center rounded-2xl"
+                    variants={sectionVariants}
+                    initial="initial"
+                    whileInView="animate"
+                    viewport={{ once: true, amount: 0.3 }}
+                  >
+                    <motion.div className="mb-8" variants={itemVariants}>
+                      <h4 className="text-2xl font-semibold mb-3 text-gray-200">
+                        Registered Address
+                      </h4>
+                      <p className="text-sm text-gray-400 max-w-md mx-auto">
+                        No 3A, Mettu Kalazni Street, Adambakkam, Chennai - 600088
+                      </p>
+                    </motion.div>
+            
+                    <motion.div
+                      className="flex justify-center gap-8 text-3xl mb-8"
+                      variants={sectionVariants}
+                    >
+                      <motion.a
+                        href="https://www.instagram.com/move_mystuffs/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:text-pink-500 transition-colors duration-200 transform hover:-translate-y-1"
+                        aria-label="Instagram"
+                        variants={itemVariants}
+                      >
+                        <FaInstagram />
+                      </motion.a>
+                      <motion.a
+                        href="https://www.facebook.com/profile.php?id=100076636426701"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:text-blue-600 transition-colors duration-200 transform hover:-translate-y-1"
+                        aria-label="Facebook"
+                        variants={itemVariants}
+                      >
+                        <FaFacebookF />
+                      </motion.a>
+                      <motion.a
+                        href="https://www.youtube.com/@movemystuffs"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:text-red-700 transition-colors duration-200 transform hover:-translate-y-1"
+                        aria-label="YouTube"
+                        variants={itemVariants}
+                      >
+                        <FaYoutube />
+                      </motion.a>
+                      <motion.a
+                        href="https://www.google.com/maps/place/MoveMyStuffs/@12.9792478,80.194448"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:text-green-500 transition-colors duration-200 transform hover:-translate-y-1"
+                        aria-label="Google Map"
+                        variants={itemVariants}
+                      >
+                        <FaMapMarkerAlt />
+                      </motion.a>
+                    </motion.div>
+            
+                    <motion.p
+                      className="text-center text-sm text-gray-400"
+                      variants={itemVariants}
+                    >
+                      © 2025 Move My Stuffs. All Rights Reserved.
+                    </motion.p>
+                  </motion.footer>
     </motion.div>
   );
 };
