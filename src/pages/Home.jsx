@@ -54,7 +54,7 @@ const modalVariants = {
   },
 };
 
-const heroImages = [home_img, office_img, vehicle_img, home_img];
+const heroImages = [ home_img];
 
 const Home = () => {
   const [showQuoteModal, setShowQuoteModal] = useState(false);
