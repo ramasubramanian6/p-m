@@ -106,7 +106,7 @@ const Home = () => {
             transition={{ delay: 0.6, duration: 1, ease: "easeOut" }}
             className="text-lg md:text-2xl max-w-3xl mb-8 drop-shadow-md"
           >
-            Your Trusted Packers & Movers – Government, GST, and I.B.A. Approved
+            Affordable Packers & Movers You Can Trust – Govt. & I.B.A. Approved
           </motion.p>
            <motion.div
                 className="text-center mt-8 space-y-4"
