@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { FaBars, FaTimes } from 'react-icons/fa';
-import { motion, AnimatePresence } from 'framer-motion';
-import logo from '../assets/ads/Group 12.png'; // Adjust path as per your project structure
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { FaBars, FaTimes } from "react-icons/fa";
+import { motion, AnimatePresence } from "framer-motion";
+import logo from "../assets/ads/Group 12.png"; // Adjust path as per your project structure
 
 const headerVariants = {
   initial: { y: -100 },
@@ -13,8 +13,8 @@ const navVariants = {
   initial: { opacity: 0 },
   animate: {
     opacity: 1,
-    transition: { staggerChildren: 0.1 }
-  }
+    transition: { staggerChildren: 0.1 },
+  },
 };
 
 const linkVariants = {
@@ -42,20 +42,30 @@ const Header = () => {
     >
       <div className="max-w-screen-xl mx-auto p-4 flex items-center justify-between">
         {/* Logo Image */}
-        <Link to="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity duration-200">
-          <img src={logo} alt="Move My Stuffs Logo" className="h-15 w-auto object-contain" />
-          <span className='text-2xl font-bold'>
-            <span className='text-[#b02c1a]'>M</span>
-            <span className='text-[#333333]'>O</span>
-            <span className='text-[#b02c1a]'>VE</span>
-            <span className='text-[#333333]'>MY </span>
-            <span className='text-[#b02c1a]'>ST</span>
-            <span className='text-[#333333]'>U</span>
-            <span className='text-[#b02c1a]'>FFS</span>
-          </span>
+        <Link
+          to="/"
+          className="flex items-center space-x-2 hover:opacity-80 transition-opacity duration-200"
+        >
+          <img
+            src={logo}
+            alt="Move My Stuffs Logo"
+            className="h-15 w-auto object-contain"
+          />
+          <div className="flex flex-col leading-tight">
+            <span className="text-2xl font-bold">
+              <span className="text-[#b02c1a]">M</span>
+              <span className="text-[#333333]">O</span>
+              <span className="text-[#b02c1a]">VE</span>
+              <span className="text-[#333333]">MY </span>
+              <span className="text-[#b02c1a]">ST</span>
+              <span className="text-[#333333]">U</span>
+              <span className="text-[#b02c1a]">FFS</span>
+            </span>
+            <span className="text-sm text-gray-600 -mt-1 font-bold ">
+              Packers and Movers
+            </span>
+          </div>
         </Link>
-        
-        
 
         {/* Menu Toggler for Mobile */}
         <div className="lg:hidden flex items-center">
@@ -76,14 +86,24 @@ const Header = () => {
           animate="animate"
         >
           {[
-            { name: 'Home', path: '/' },
-            { name: 'Household Shifting', path: '/household' },
-            { name: 'Vehicle Transport', path: '/vehicle' },
-            { name: 'Office-Relocation', path: '/office' },
-            { name: 'About Us', path: '/about-us' },
+            { name: "Home", path: "/" },
+            { name: "Household Shifting", path: "/household" },
+            { name: "Vehicle Transport", path: "/vehicle" },
+            { name: "Office-Relocation", path: "/office" },
+            { name: "About Us", path: "/about-us" },
           ].map(({ name, path }) => (
-            <motion.div key={name} variants={linkVariants} whileHover="hover" whileTap="tap">
-              <Link to={path} className="text-lg font-medium hover:text-blue-500 transition-colors duration-200">{name}</Link>
+            <motion.div
+              key={name}
+              variants={linkVariants}
+              whileHover="hover"
+              whileTap="tap"
+            >
+              <Link
+                to={path}
+                className="text-lg font-medium hover:text-blue-500 transition-colors duration-200"
+              >
+                {name}
+              </Link>
             </motion.div>
           ))}
         </motion.nav>
@@ -101,12 +121,12 @@ const Header = () => {
             >
               <nav className="flex flex-col items-center space-y-6">
                 {[
-                  { name: 'Home', path: '/' },
-                  { name: 'Household Shifting', path: '/household' },
-                  { name: 'Vehicle Transport', path: '/vehicle' },
-                  { name: 'Office Relocation', path: '/office' },
-                  { name: 'About Us', path: '/about-us' },
-                  { name: 'Contact Us', path: '/get-quote' },
+                  { name: "Home", path: "/" },
+                  { name: "Household Shifting", path: "/household" },
+                  { name: "Vehicle Transport", path: "/vehicle" },
+                  { name: "Office Relocation", path: "/office" },
+                  { name: "About Us", path: "/about-us" },
+                  { name: "Contact Us", path: "/get-quote" },
                 ].map(({ name, path }) => (
                   <Link
                     key={name}

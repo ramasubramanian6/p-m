@@ -43,11 +43,11 @@ export default function ContactSection() {
         >
           <motion.p className="flex items-center gap-3" variants={itemVariants}>
             <FaPhoneAlt className="text-xl text-blue-300" />
-            Sales & Marketing: <span className="font-semibold">+91 9087893000</span>
+            Sales & Marketing: <span className="font-semibold text-3xl">+91 9087893000</span>
           </motion.p>
           <motion.p className="flex items-center gap-3" variants={itemVariants}>
             <FaPhoneAlt className="text-xl text-blue-300" />
-            Help Line: <span className="font-semibold">+91 7253055609</span>
+            Help Line: <span className="font-semibold text-3xl">+91 7253055609</span>
           </motion.p>
         </motion.div>
 

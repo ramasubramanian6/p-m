@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import emailjs from "emailjs-com";
 import { motion, AnimatePresence } from "framer-motion";
+import ContactSection from "./ContactSection";
 
 const AboutUs = () => {
   const [formData, setFormData] = useState({ name: "", phone: "", note: "" });
@@ -275,9 +276,11 @@ const userID = import.meta.env.VITE_USERID;
                   )}
                 </div>
               </motion.div>
+              
             </>
           )}
         </AnimatePresence>
+        <ContactSection/>
       </div>
     </>
   );
