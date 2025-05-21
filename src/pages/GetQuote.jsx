@@ -108,13 +108,12 @@ const GetQuote = () => {
 
     emailjs
       .sendForm(
-        "service_5ptojte",
-        "template_gg5lba9",
+        "service_w3j2mvg",
+        "template_r0mhdyn",
         e.target,
-        "VYrOW621xJ6XeKWX1"
+        "zpf9J79iEWNBSS9EY"
       )
       .then((result) => {
-        console.log("Email sent:", result.text);
         alert("Quote request sent successfully!");
         e.target.reset();
       })

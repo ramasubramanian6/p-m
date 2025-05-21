@@ -2,11 +2,8 @@ import React, { useState, useEffect } from "react";
 import emailjs from "emailjs-com";
 import { motion, AnimatePresence } from "framer-motion";
 
-// Google Fonts: Poppins imported via tailwind config or index.html
-// Tailwind CSS is assumed configured
-
 const AboutUs = () => {
-  const [formData, setFormData] = useState({ name: "", phone: "" });
+  const [formData, setFormData] = useState({ name: "", phone: "", note: "" });
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
   const [showModal, setShowModal] = useState(false);
@@ -25,7 +22,7 @@ const AboutUs = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!formData.name || !formData.phone) {
+    if (!formData.name || !formData.phone || !formData.note) {
       setMessage("Please fill in all fields.");
       return;
     }
@@ -33,20 +30,21 @@ const AboutUs = () => {
     setLoading(true);
     setMessage("");
 
-    const serviceID = "YOUR_SERVICE_ID";
-    const templateID = "YOUR_TEMPLATE_ID";
-    const userID = "YOUR_USER_ID";
+    const serviceID = "service_w3j2mvg";
+    const templateID = "template_u61024q";
+    const userID = "zpf9J79iEWNBSS9EY";
 
     const templateParams = {
       from_name: formData.name,
       phone_number: formData.phone,
+      message: formData.note,
     };
 
     emailjs.send(serviceID, templateID, templateParams, userID).then(
       () => {
         setLoading(false);
         setMessage("Thank you! We'll call you soon.");
-        setFormData({ name: "", phone: "" });
+        setFormData({ name: "", phone: "", note: "" });
       },
       (error) => {
         setLoading(false);
@@ -101,7 +99,6 @@ const AboutUs = () => {
             About Us
           </motion.h1>
 
-          {/* Mission & Vision */}
           <motion.section
             className="mb-16 bg-white rounded-3xl shadow-lg p-10 md:p-16 border border-purple-200"
             variants={containerVariants}
@@ -110,19 +107,14 @@ const AboutUs = () => {
               Our Mission & Vision
             </h2>
             <p className="text-gray-700 max-w-3xl mx-auto leading-relaxed text-lg text-center">
-              At <span className="font-bold text-purple-600">Om Packers & Movers</span>, our mission is to deliver
+              At <span className="font-bold text-purple-600">Move My Stuffs Packers & Movers</span>, our mission is to deliver
               seamless, trustworthy, and efficient moving services that give you peace of mind. We
               envision a world where every relocation is smooth and stress-free — with care at the
               heart of everything we do.
             </p>
           </motion.section>
 
-          {/* Offices & Branches */}
-          <motion.section
-            className="mb-16 grid grid-cols-1 md:grid-cols-2 gap-12"
-            variants={containerVariants}
-          >
-            {/* Head Office */}
+          <motion.section className="mb-16 grid grid-cols-1 md:grid-cols-2 gap-12" variants={containerVariants}>
             <div className="bg-white rounded-3xl shadow-xl p-8 border border-purple-100 hover:shadow-2xl transition duration-300">
               <h3 className="text-2xl font-bold text-purple-800 mb-4 flex items-center gap-3">
                 <svg
@@ -132,22 +124,14 @@ const AboutUs = () => {
                   viewBox="0 0 24 24"
                   stroke="currentColor"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M17 9V7a5 5 0 00-10 0v2m12 0v10a2 2 0 01-2 2H7a2 2 0 01-2-2V9m12 0H5"
-                  />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 9V7a5 5 0 00-10 0v2m12 0v10a2 2 0 01-2 2H7a2 2 0 01-2-2V9m12 0H5" />
                 </svg>
                 Head Office - Chennai
               </h3>
-              <p className="text-gray-700 mb-3">
-                No 3 A, Mettu Kalazni Street, Adambakkam, Chennai 600088
-              </p>
+              <p className="text-gray-700 mb-3">No 3 A, Mettu Kalazni Street, Adambakkam, Chennai 600088</p>
               {commonPhoneNumbers}
             </div>
 
-            {/* Branches */}
             <div className="bg-white rounded-3xl shadow-xl p-8 border border-purple-100 hover:shadow-2xl transition duration-300">
               <h3 className="text-2xl font-bold text-purple-800 mb-6 text-center md:text-left">
                 Branches & Network Cities
@@ -155,18 +139,15 @@ const AboutUs = () => {
               {[
                 {
                   city: "Bangalore",
-                  address:
-                    "No 63/201, 2nd Cross, JC Road Kalasipalyam New Extension, Bengaluru - 560002",
+                  address: "No 63/201, 2nd Cross, JC Road Kalasipalyam New Extension, Bengaluru - 560002",
                 },
                 {
                   city: "Coimbatore",
-                  address:
-                    "Sridevi Nagar, Giri Nagar, Saibaba Colony, K K Pudur, Coimbatore, Tamil Nadu 641025",
+                  address: "Sridevi Nagar, Giri Nagar, Saibaba Colony, K K Pudur, Coimbatore, Tamil Nadu 641025",
                 },
                 {
                   city: "Hyderabad",
-                  address:
-                    "H No. 8/7 95/3, Old Bowenpally, Balaji Secundrabad, Hyderabad, Telangana, 500011",
+                  address: "H No. 8/7 95/3, Old Bowenpally, Balaji Secundrabad, Hyderabad, Telangana, 500011",
                 },
                 {
                   city: "Delhi NCR",
@@ -194,7 +175,6 @@ const AboutUs = () => {
         <AnimatePresence>
           {showModal && (
             <>
-              {/* Backdrop */}
               <motion.div
                 className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40"
                 variants={modalBackdrop}
@@ -203,8 +183,6 @@ const AboutUs = () => {
                 exit="hidden"
                 onClick={() => setShowModal(false)}
               />
-
-              {/* Modal Content */}
               <motion.div
                 className="fixed inset-0 flex items-center justify-center z-50 px-4"
                 variants={modalVariants}
@@ -213,25 +191,13 @@ const AboutUs = () => {
                 exit="hidden"
               >
                 <div className="bg-white rounded-3xl shadow-2xl max-w-md w-full p-10 relative border border-purple-100">
-                  {/* Close Button */}
                   <button
                     onClick={() => setShowModal(false)}
                     className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 focus:outline-none"
                     aria-label="Close modal"
                   >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-7 w-7"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M6 18L18 6M6 6l12 12"
-                      />
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                     </svg>
                   </button>
 
@@ -240,10 +206,7 @@ const AboutUs = () => {
                   </h2>
                   <form onSubmit={handleSubmit} className="space-y-8">
                     <div>
-                      <label
-                        htmlFor="name"
-                        className="block mb-3 font-semibold text-gray-700 text-lg"
-                      >
+                      <label htmlFor="name" className="block mb-3 font-semibold text-gray-700 text-lg">
                         Name
                       </label>
                       <input
@@ -258,10 +221,7 @@ const AboutUs = () => {
                       />
                     </div>
                     <div>
-                      <label
-                        htmlFor="phone"
-                        className="block mb-3 font-semibold text-gray-700 text-lg"
-                      >
+                      <label htmlFor="phone" className="block mb-3 font-semibold text-gray-700 text-lg">
                         Phone Number
                       </label>
                       <input
@@ -273,6 +233,21 @@ const AboutUs = () => {
                         placeholder="+91 98765 43210"
                         required
                         className="w-full border border-gray-300 rounded-2xl px-5 py-3 bg-purple-50 focus:outline-none focus:ring-4 focus:ring-purple-300 focus:bg-white transition text-lg"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="note" className="block mb-3 font-semibold text-gray-700 text-lg">
+                        Message / Note
+                      </label>
+                      <textarea
+                        name="note"
+                        id="note"
+                        value={formData.note}
+                        onChange={handleChange}
+                        placeholder="How can we help you?"
+                        required
+                        rows={3}
+                        className="w-full border border-gray-300 rounded-2xl px-5 py-3 bg-purple-50 focus:outline-none focus:ring-4 focus:ring-purple-300 focus:bg-white transition text-lg resize-none"
                       />
                     </div>
                     <motion.button

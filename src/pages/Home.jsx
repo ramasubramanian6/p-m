@@ -133,7 +133,7 @@ const Home = () => {
                   whileTap={{ scale: 0.95 }}
                 >
                   <FaPhoneAlt className="text-xl" />
-                  Call Us Now
+                  +91 9087893000
                 </motion.a>
               </motion.div>
         </div>
