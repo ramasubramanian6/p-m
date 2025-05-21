@@ -105,13 +105,16 @@ const GetQuote = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const serviceID = import.meta.env.VITE_SERVICEID1;
+    const templateID = import.meta.env.VITE_TEMPLATEID1;
+    const userID = import.meta.env.VITE_USERID1;
 
-    emailjs
+     emailjs
       .sendForm(
-        "service_w3j2mvg",
-        "template_r0mhdyn",
+        serviceID,
+        templateID,
         e.target,
-        "zpf9J79iEWNBSS9EY"
+        userID
       )
       .then((result) => {
         alert("Quote request sent successfully!");

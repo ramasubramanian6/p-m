@@ -30,9 +30,13 @@ const AboutUs = () => {
     setLoading(true);
     setMessage("");
 
-    const serviceID = "service_w3j2mvg";
-    const templateID = "template_u61024q";
-    const userID = "zpf9J79iEWNBSS9EY";
+
+
+const serviceID = import.meta.env.VITE_SERVICEID;
+const templateID = import.meta.env.VITE_TEMPLATEID;
+const userID = import.meta.env.VITE_USERID;
+
+   
 
     const templateParams = {
       from_name: formData.name,

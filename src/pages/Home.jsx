@@ -60,6 +60,9 @@ const Home = () => {
   const [showQuoteModal, setShowQuoteModal] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
+
+  const apiUrl = import.meta.env.VITE_API_URL;
+  console.log(apiUrl);
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowQuoteModal(true);
